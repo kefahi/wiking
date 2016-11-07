@@ -76,6 +76,8 @@ module WikingWikiHelperPatch
                 help_link = url
             end
 
+            # Fix help_link (hardcoded) to textile option. (need to be made dynamic so it detects the current active wiki format)
+            help_link = "#{Redmine::Utils.relative_url_root}/help/#{current_language.to_s.downcase}/wiki_syntax_textile.html"
             js_code << "wikiToolbar.setHelpLink('#{escape_javascript(help_link)}');"
             js_code << "wikiToolbar.draw();"
 
